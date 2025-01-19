@@ -1,0 +1,1 @@
+print(str.join("Aa", "Bb"))
