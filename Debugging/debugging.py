@@ -13,7 +13,7 @@ predict_weather()
 pets = { 'cat': 'pepe', 'dog': ['sparky', 'fido'], 'fish': 'oscar' }
 
 pets['dog'].append('bowser')
-pets['dog'] += ['bowser']  # Testing - does not work
+pets['dog'] += 'bowser'  # Testing - does not work
 
 print(pets)  # Output: {'cat': 'pepe', 'dog': 'bowser', 'fish': 'oscar'}
 

@@ -77,8 +77,30 @@ print(extract_region('en_GB.UTF-8'))    # GB
 print(extract_region('ko_KR.UTF-16'))   # KR
 
 def local_greet(locale):
-    return greet(extract_language(locale))
+    if not extract_language(locale) == 'en':
+        return greet(extract_language(locale))
+    else:
+        region = extract_region(locale)
+        print(region)
+        match region:
+            case "US":
+                return "Hey!"
+            case "GB":
+                return "Hello!"
+            case "AU":
+                return "Howdy!"
+            case _:
+                return "Hi!"
+            
 
 print(local_greet('en_US.UTF-8'))       # Hey!
 print(local_greet('fr_GB.UTF-8'))       # Hello!
 print(local_greet('pt_AU.UTF-8'))       # Howdy!
+
+print(local_greet('en_US.UTF-8'))       # Hey!
+print(local_greet('en_GB.UTF-8'))       # Hello!
+print(local_greet('en_AU.UTF-8'))       # Howdy!
+
+print(local_greet('fr_FR.UTF-8'))       # Salut!
+print(local_greet('fr_CA.UTF-8'))       # Salut!
+print(local_greet('fr_MA.UTF-8'))       # Salut!
